@@ -17,8 +17,6 @@ func printMenus() {
     4. 회고 삭제
     5. 전체 회고 목록 출력
     6. 종료
-    7. 머지 확인용
-    8. 수정을 해봅시다
     """)
 }
 
@@ -51,21 +49,3 @@ func getUserInput() {
 
 getUserInput()
 
-//
-//  main.swift
-//  Weekly01
-//
-//  Created by 김도연 on 2/7/25.
-//
-//
-//  main.swift
-//  Weekly01
-//
-//  Created by 김도연 on 2/7/25.
-//
-//
-//  main.swift
-//  Weekly01
-//
-//  Created by 김도연 on 2/7/25.
-//
