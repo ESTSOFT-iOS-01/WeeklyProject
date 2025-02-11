@@ -10,7 +10,7 @@ import Foundation
 class ReflectionViewModel {
     //날짜를 키 값으로 정하기 위해
     //private 메서드를 통해서만 접근 가능하게 하여 데이터 무결성 유지
-    private var reflections: [String: Reflection] = [:]
+    private var reflections: [Date: Reflection] = [:]
     
     // 메뉴 출력
     func printMenu() {
@@ -26,15 +26,27 @@ class ReflectionViewModel {
     }
     
     // 회고 추가
-    func addReflection(date: String, content: String) {
+    func addReflection(dateString: String) {
+        guard let date = DateHelper.shared.stringToDate(from: dateString) else {
+            print("잘못된 날짜 형식입니다.\n")
+            return
+        }
+        print("회고 내용을 입력하세요:", terminator: " ")
+        let content = readLine() ?? ""
+        
         reflections[date] = Reflection(date: date, content: content)
         print("회고가 추가 되었습니다.\n")
     }
     
     // 회고 조회
-    func retrieveReflection(date: String) {
+    func retrieveReflection(dateString: String) {
+        guard let date = DateHelper.shared.stringToDate(from: dateString) else {
+            print("잘못된 날짜 형식입니다.\n")
+            return
+        }
+        
         if let reflection = reflections[date] {
-            print("날짜: \(reflection.date)")
+            print("날짜: \(reflection.dateString)")
             print("내용: \(reflection.content)\n")
         } else {
             print("해당 날짜의 회고가 없습니다.\n")
@@ -42,10 +54,15 @@ class ReflectionViewModel {
     }
     
     // 회고 수정
-    func updateReflection(date: String) {
+    func updateReflection(dateString: String) {
+        guard let date = DateHelper.shared.stringToDate(from: dateString) else {
+            print("잘못된 날짜 형식입니다.\n")
+            return
+        }
+        
         if reflections[date] != nil {
             print("새로운 회고 내용을 입력하세요: ", terminator: " ")
-            var newContent = readLine() ?? ""
+            let newContent = readLine() ?? ""
             reflections[date]?.content = newContent
             print("회고가 수정되었습니다.\n")
         } else {
@@ -54,7 +71,12 @@ class ReflectionViewModel {
     }
     
     // 회고 삭제
-    func deleteReflection(date: String) {
+    func deleteReflection(dateString: String) {
+        guard let date = DateHelper.shared.stringToDate(from: dateString) else {
+            print("잘못된 날짜 형식입니다.\n")
+            return
+        }
+        
         if reflections.removeValue(forKey: date) != nil {
             print("회고가 삭제되었습니다.\n")
         } else {
@@ -66,7 +88,7 @@ class ReflectionViewModel {
     func printAllReflection() {
         print("=== 저장된 회고 목록 ===")
         for reflection in reflections.values {
-            print("날짜: \(reflection.date)")
+            print("날짜: \(reflection.dateString)")
             print("내용: \(reflection.content)")
         }
     }

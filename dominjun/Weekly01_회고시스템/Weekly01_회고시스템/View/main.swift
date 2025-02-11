@@ -28,22 +28,20 @@ while true {
     case 1:
         print("날짜를 입력하세요 (예: 2024-12-25):", terminator: " ")
         date = readLine() ?? ""
-        print("회고 내용을 입력하세요:", terminator: " ")
-        content = readLine() ?? ""
-        reflectionManager.addReflection(date: date, content: content)
+        reflectionManager.addReflection(dateString: date)
         
     case 2:
         print("조회할 날짜를 입력하세요:", terminator: " ")
         date = readLine() ?? ""
-        reflectionManager.retrieveReflection(date: date)
+        reflectionManager.retrieveReflection(dateString: date)
     case 3:
         print("수정할 날짜를 입력하세요:", terminator: " ")
         date = readLine() ?? ""
-        reflectionManager.updateReflection(date: date)
+        reflectionManager.updateReflection(dateString: date)
     case 4:
         print("삭제할 날짜를 입력하세요:", terminator: " ")
         date = readLine() ?? ""
-        reflectionManager.deleteReflection(date: date)
+        reflectionManager.deleteReflection(dateString: date)
         
     case 5:
         reflectionManager.printAllReflection()
