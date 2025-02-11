@@ -31,6 +31,10 @@ class ReflectionViewModel {
             print("잘못된 날짜 형식입니다.\n")
             return
         }
+        
+        let normalizedDate = Calendar.current.startOfDay(for: date) // 시간 제거
+        print("조회 변환된 날짜: \(normalizedDate)")  // 디버깅용 출력
+        
         print("회고 내용을 입력하세요:", terminator: " ")
         let content = readLine() ?? ""
         

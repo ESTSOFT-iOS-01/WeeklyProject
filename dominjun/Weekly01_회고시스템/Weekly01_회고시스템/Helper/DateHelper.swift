@@ -32,7 +32,11 @@ class DateHelper {
     func stringToDate(from input: String) -> Date? {
         for formatter in formatters {
             if let date = formatter.date(from: input) {
-                return date
+                // 자정으로 설정하여 시간 정보 제거
+                let calendar = Calendar.current
+                let normalizedDate = calendar.startOfDay(for: date) // 시간 제거
+                print("변환된 날짜: \(normalizedDate)")  // 디버깅용 출력
+                return calendar.startOfDay(for: date)
             }
         }
         return nil

@@ -16,6 +16,7 @@ struct Reflection {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간으로 변환
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }
