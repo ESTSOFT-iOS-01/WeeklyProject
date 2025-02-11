@@ -12,16 +12,7 @@ var menuNum = 0
 var date = ""
 var content = ""
 
-print("""
-=== 회고 시스템 ===
-1. 회고 추가
-2. 회고 조회
-3. 회고 수정
-4. 회고 삭제
-5. 전체 회고 목록 출력
-6. 종료
-""")
-print()
+reflectionManager.printMenu()
 
 while true {
     print("메뉴를 선택하세요:", terminator: " ")
@@ -40,8 +31,6 @@ while true {
         print("회고 내용을 입력하세요:", terminator: " ")
         content = readLine() ?? ""
         reflectionManager.addReflection(date: date, content: content)
-        //replections[date] = content
-        //print(replections)
         
     case 2:
         print("조회할 날짜를 입력하세요:", terminator: " ")
@@ -59,8 +48,7 @@ while true {
     case 5:
         reflectionManager.printAllReflection()
     default:
-        print("잘못된 입력입니다.")
-        print()
+        print("잘못된 입력입니다.\n")
     }
 }
 
