@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5907993B2D5B755A00D1D062 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907993A2D5B755A00D1D062 /* DateHelper.swift */; };
+		5957EFEA2D59D0700019B873 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957EFE92D59D0700019B873 /* Reflection.swift */; };
+		5957EFEC2D59D1550019B873 /* ReflectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957EFEB2D59D1550019B873 /* ReflectionViewModel.swift */; };
 		598907C92D461A930024CCEF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598907C82D461A930024CCEF /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5907993A2D5B755A00D1D062 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		5957EFE92D59D0700019B873 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
+		5957EFEB2D59D1550019B873 /* ReflectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionViewModel.swift; sourceTree = "<group>"; };
 		598907C52D461A930024CCEF /* Weekly01_회고시스템 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Weekly01_회고시스템"; sourceTree = BUILT_PRODUCTS_DIR; };
 		598907C82D461A930024CCEF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +44,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		590799372D5B751000D1D062 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5907993A2D5B755A00D1D062 /* DateHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		5957EFE62D59CAAD0019B873 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5957EFEB2D59D1550019B873 /* ReflectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5957EFE72D59CAB90019B873 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				598907C82D461A930024CCEF /* main.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5957EFE82D59CABF0019B873 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5957EFE92D59D0700019B873 /* Reflection.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		598907BC2D461A930024CCEF = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +95,10 @@
 		598907C72D461A930024CCEF /* Weekly01_회고시스템 */ = {
 			isa = PBXGroup;
 			children = (
-				598907C82D461A930024CCEF /* main.swift */,
+				590799372D5B751000D1D062 /* Helper */,
+				5957EFE82D59CABF0019B873 /* Model */,
+				5957EFE72D59CAB90019B873 /* View */,
+				5957EFE62D59CAAD0019B873 /* ViewModel */,
 			);
 			path = "Weekly01_회고시스템";
 			sourceTree = "<group>";
@@ -120,6 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5957EFEA2D59D0700019B873 /* Reflection.swift in Sources */,
+				5907993B2D5B755A00D1D062 /* DateHelper.swift in Sources */,
+				5957EFEC2D59D1550019B873 /* ReflectionViewModel.swift in Sources */,
 				598907C92D461A930024CCEF /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
