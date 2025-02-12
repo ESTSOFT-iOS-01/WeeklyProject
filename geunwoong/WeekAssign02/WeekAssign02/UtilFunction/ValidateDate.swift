@@ -26,7 +26,7 @@ extension ReflectionSystem {
         if dateArr[2] == "31", ["04", "06", "09", "11"].contains(dateArr[1]) {
             print("날짜가 유효하지 않습니다.\n")
             return false
-        }else if dateArr[1] == "02", ["29","30","31"].contains(dateArr[2]) {
+        }else if dateArr[1] == "02", ["29", "30", "31"].contains(dateArr[2]) {
             print("날짜가 유효하지 않습니다.\n")
             return false
         }
