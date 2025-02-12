@@ -4,18 +4,27 @@
  
  Data
  - input: String // 입력받은 메뉴의 String값
- - menu: Int // String값을 Int로 캐스팅, 이때 1~6이 아니면 잘못된메뉴 선택으로 -1반환, 아니면 1~6 반환
+ - menuNum: Int // String 값을 Int로 바꾸고 범위부터 확인
+ - menu: ReflectionSystemMenu // 1~6이면 정상적인 메뉴로 보고 케이스를 반환
 
  etc
- - 
+ -
+ 
 */
 extension ReflectionSystem {
-    func userMenuInput() -> Int {
+    func userMenuInput() -> ReflectionSystemMenu {
         print("메뉴를 선택하세요: ", terminator: "")
-        guard let input = readLine(), let menu = Int(input), menu >= 1 && menu <= 6 else {
+        // 사용자의 입력을 받음
+        guard let input = readLine(), let menuNum = Int(input), menuNum >= 1 && menuNum <= 6 else {
             print("잘못된 메뉴 선택입니다.\n")
-            return -1
+            return .none
         }
+        // 메뉴 케이스로 변경
+        guard let menu = ReflectionSystemMenu(rawValue: menuNum) else {
+            print("메뉴 번호를 SystemMenu로 못바꿈")
+            return .none
+        }
+        
         return menu
     }
 }

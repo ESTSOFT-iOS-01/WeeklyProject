@@ -3,18 +3,21 @@
  Purpose: 입력받은 메뉴에 따른 메뉴 실행
  
  Data
- - menu: Int // 입력받은 메뉴 값의 Int형, 1~6은 정상적인 입력으로 메뉴 실행, -1은 오류상태
+ - menu: ReflectionSystemMenu (케이스에 대한 설명은 ReflectionSystemMenu.swift 참고)
 
  etc
- - 지금은 -1이 들어오면 아무것도 안하는데 나중엔 먼가 처리를 해주면 좋을듯
+ - enum에 에러 상태를 추가했는데 여기에 해당 하는 에러를 추가 (+ 연관값...?)
 */
 extension ReflectionSystem {
-    func executeMenu(menu: Int) {
-        if menu == 1 { addReflection() }
-        if menu == 2 { searchReflection() }
-        if menu == 3 { editReflection() }
-        if menu == 4 { deleteReflection() }
-        if menu == 5 { printAllReflection() }
-        if menu == 6 { exitProgram() }
+    func executeMenu(menu: ReflectionSystemMenu) {
+        switch menu {
+        case .addReflection: addReflection()
+        case .searchReflection: searchReflection()
+        case .editReflection: editReflection()
+        case .deleteReflection: deleteReflection()
+        case .printAllReflection: printMenuBoard()
+        case .exitProgram: exitProgram()
+        case .none: print("에러발생")
+        }
     }
 }

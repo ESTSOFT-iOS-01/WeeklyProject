@@ -13,15 +13,17 @@
 */
 final class ReflectionSystem {
     static let shared = ReflectionSystem() // 외부 호출용 싱글톤
-    let db = ReflectionSystemDB.shared
-    var power: Bool = false
+    let db = ReflectionSystemDB.shared // 회고를 저장하는 db
+    var power: Bool = false // 시스템의 전원
     private init() { }
+    
     //프로그램 작동
     func run() {
         self.power.toggle()
         printMenuBoard() // 메뉴판 출력
         while power {
-            executeMenu(menu: userMenuInput())
+            let menu = userMenuInput()
+            executeMenu(menu: menu) // menu 실행
         }
     }
 }
