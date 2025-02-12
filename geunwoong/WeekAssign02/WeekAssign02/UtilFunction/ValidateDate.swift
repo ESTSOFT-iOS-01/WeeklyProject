@@ -34,24 +34,4 @@ extension ReflectionSystem {
         // 둘다 통과하면 입력은 정상적
         return true
     }
-    func legacyValidateDate(date: String) -> Bool { // 날짜가 올바른 형식이고 날짜가 유효한지 판단
-        let regex = /\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/ // yyyy-mm-dd 형식의 정규식
-        guard let dateMatch = date.wholeMatch(of: regex)?.output else { // 날짜의 형식이 맞지않음
-            print("날짜의 입력이 잘못되었습니다.\n")
-            return false
-        }
-        let month: String = String(dateMatch.1) // 월
-        let day: String = String(dateMatch.2) // 일
-        
-        // 날짜가 유효하지 않음
-        if (month == "04" || month == "06" || month == "09" || month == "11") && day == "31" { // 30일까지 있음
-            print("날짜가 유효하지 않습니다.\n")
-            return false
-        }else if month == "02" && (day == "29" || day == "30" || day == "31") {
-            print("날짜가 유효하지 않습니다.\n")
-            return false
-        }
-        // 날짜가 유효함
-        return true
-    }
 }
