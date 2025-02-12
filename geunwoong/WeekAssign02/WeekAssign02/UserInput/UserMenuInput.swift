@@ -16,12 +16,11 @@ extension ReflectionSystem {
         print("메뉴를 선택하세요: ", terminator: "")
         // 사용자의 입력을 받음
         guard let input = readLine(), let menuNum = Int(input), menuNum >= 1 && menuNum <= 6 else {
-            print("잘못된 메뉴 선택입니다.\n")
             return .none
         }
         // 메뉴 케이스로 변경
         guard let menu = ReflectionSystemMenu(rawValue: menuNum) else {
-            print("메뉴 번호를 SystemMenu로 못바꿈")
+            print("메뉴 번호를 SystemMenu로 못바꿈\n")
             return .none
         }
         

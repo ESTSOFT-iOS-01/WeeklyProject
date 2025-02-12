@@ -11,27 +11,13 @@
  - 정규식을 활용한 date.wholeMatch(of: regex)는 판단만 하면 되서 '_' 처리
  - 2월과 30일까지인 달 처리가 먼가 예쁘지 않다. 나중에 하나로 합쳐보자
 */
+import Foundation
 extension ReflectionSystem {
     // 유효성 검사
-    func validateDate(date: String) -> Bool {
-        // 입력 형식에 따른 검사
-        let regex = /\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/ // 정규식(yyyy-mm-dd)
-        guard let _ = date.wholeMatch(of: regex) else {
-            print("날짜의 입력형식이 잘못되었습니다.\n")
-            return false
-        }
-        
-        // 입력된 날짜에 따른 검사
-        let dateArr: [String] = date.components(separatedBy: "-")
-        if dateArr[2] == "31", ["04", "06", "09", "11"].contains(dateArr[1]) {
-            print("날짜가 유효하지 않습니다.\n")
-            return false
-        }else if dateArr[1] == "02", ["29", "30", "31"].contains(dateArr[2]) {
-            print("날짜가 유효하지 않습니다.\n")
-            return false
-        }
-        
-        // 둘다 통과하면 입력은 정상적
-        return true
+    func validateDate(date: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.date(from: date)
     }
 }

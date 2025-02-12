@@ -15,9 +15,9 @@ extension ReflectionSystem {
         case .searchReflection: searchReflection()
         case .editReflection: editReflection()
         case .deleteReflection: deleteReflection()
-        case .printAllReflection: printMenuBoard()
+        case .printAllReflection: printAllReflection()
         case .exitProgram: exitProgram()
-        case .none: print("에러발생")
+        case .none: print("잘못된 메뉴 선택입니다.\n")
         }
     }
 }

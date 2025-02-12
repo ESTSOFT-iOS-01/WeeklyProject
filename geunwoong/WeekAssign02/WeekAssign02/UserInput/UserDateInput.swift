@@ -12,10 +12,14 @@ extension ReflectionSystem {
     func userDateInput(how: String) -> String? {
         print("\(how)할 날짜를 입력하세요 (예: 2024-12-25): ", terminator: "")
         guard let date = readLine() else {
-            print("잘못된 입력입니다.")
+            print("잘못된 입력입니다.\n")
+            return nil
+        }
+        guard let _ = validateDate(date: date) else {
+            print("날못된 날짜입니다.\n")
             return nil
         }
         // 유효성 검사 후 괜찮으면 date를 반환 아니면 nil
-        return validateDate(date: date) ? date : nil
+        return date
     }
 }
