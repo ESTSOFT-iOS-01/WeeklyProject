@@ -10,7 +10,7 @@
  - 간단한 내용으로 작성되어 있어 한 파일로 사용
  - class이니까 protocol 사용도 좋을듯
 */
-class ReflectionSystemDB {
+final class ReflectionSystemDB {
     static let shared = ReflectionSystemDB()
     private var DB: [String:Reflection] = [:]
     private init() { }

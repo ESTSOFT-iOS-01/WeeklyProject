@@ -11,7 +11,7 @@
  - 여기선 회고 시스템의 작동만 담당하고 실제 작동은 executeMenu에서 실행
  - class이니까 protocol 사용도 좋을듯
 */
-class ReflectionSystem {
+final class ReflectionSystem {
     static let shared = ReflectionSystem() // 외부 호출용 싱글톤
     let db = ReflectionSystemDB.shared
     var power: Bool = false
