@@ -13,6 +13,7 @@ enum ReflectionError: String {
     case emptyInput = "입력된 값이 없습니다."
     case duplicateEntry = "해당 날짜의 회고가 이미 존재합니다. 수정 기능을 이용하세요."
     case notFound = "해당 날짜의 회고가 없습니다."
+    case invalidMenu = "잘못된 메뉴 선택입니다."
 
     /// 에러 메시지를 출력하는 함수
     func printMessage() {

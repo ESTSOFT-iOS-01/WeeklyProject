@@ -28,7 +28,7 @@ func getUserInput() {
     while true {
         print("메뉴를 입력하세요:", terminator: " ")
         guard let input = Int(readLine() ?? ""), (1...6).contains(input) else {
-            print("잘못된 메뉴 선택입니다.")
+            ReflectionError.invalidMenu.printMessage()
             continue
         }
 
@@ -42,7 +42,7 @@ func getUserInput() {
             print("프로그램을 종료합니다.")
             return
         default:
-            print("잘못된 메뉴 선택입니다.")
+            ReflectionError.invalidMenu.printMessage()
         }
     }
 }
